@@ -1,0 +1,11 @@
+﻿  SVG_2.cpp
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(44,47): warning C4305: 'argument': truncation from 'int' to '_Elem'
+          with
+          [
+              _Elem=char
+          ]
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(44,41): warning C4309: 'argument': truncation of constant value
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(23,8): warning C4101: 'text': unreferenced local variable
+SVG_2.obj : error LNK2019: unresolved external symbol "public: __thiscall Vector<char *>::Vector<char *>(void)" (??0?$Vector@PAD@@QAE@XZ) referenced in function _main
+SVG_2.obj : error LNK2019: unresolved external symbol "public: __thiscall Vector<char *>::~Vector<char *>(void)" (??1?$Vector@PAD@@QAE@XZ) referenced in function _main
+C:\Users\Rosi Deyanova\source\repos\SVG_2\Debug\SVG_2.exe : fatal error LNK1120: 2 unresolved externals
