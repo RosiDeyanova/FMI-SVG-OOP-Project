@@ -139,20 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\SVG\SVG\Circle.cpp" />
-    <ClCompile Include="..\..\SVG\SVG\Line.cpp" />
-    <ClCompile Include="..\..\SVG\SVG\Rectangle.cpp" />
-    <ClCompile Include="..\..\SVG\SVG\Shape.cpp" />
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="SVG_2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\SVG\SVG\Circle.h" />
-    <ClInclude Include="..\..\SVG\SVG\Line.h" />
-    <ClInclude Include="..\..\SVG\SVG\Rectangle.h" />
-    <ClInclude Include="..\..\SVG\SVG\Shape.h" />
-    <ClInclude Include="..\..\SVG\SVG\Vector.h" />
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="functions.h" />
+    <ClInclude Include="Line.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="String.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
