@@ -7,12 +7,11 @@ class Circle:public Shape
 {
 private:
 	int r;
-	char fill[10];
 
 public:
 	Circle();
-	Circle(int r, const char* fill);
-	void print();
+	Circle(char* name, int x, int y, char* color, int r);
+	void print() override;
 		
 
 
