@@ -21,32 +21,12 @@ void openFile(const char* input_file_name)
 	{
 		while (!MyFile.eof())
 		{
-			//Vector<Shape>shapes;
-			//char str[1000];
 			char* str = new char[1024];
-			char* word = new char[100];
-			//Vector <char*> words;
+			
 			MyFile.getline(str, 1000);
-
-			for (size_t i = 0; i < strlen(str); i++)
-			{
-				while (str[i] != 32)
-				{
-					int len = strlen(word) + sizeof(char);
-					char* new_str = new char[len];
-					strcpy_s(new_str, len, word + str[i]);
-					word = new_str;
-
-				}
-
-				int len = strlen(word) + 1;
-				char* new_str = new char[len];
-				strcpy_s(new_str, len, word + '\0');
-				word = new_str;
-			}
-
-			delete[] word;
-			delete[] str;
+			String string = str;
+			Vector <String> words = string.tokenize(' ');
+			
 		}
 			MyFile.close();
 			std::cout << "\nSuccessfully opened " << std::endl;
@@ -58,15 +38,15 @@ void openFile(const char* input_file_name)
 
 int main()
 {
-	String s = "Hello this is Hot Garbage!";
+	/*String s = "Hello this is Hot Garbage!";
 	Vector<String> strvector = s.tokenize(' ');
 	for (size_t i = 0; i < strvector.getSize(); i++)
 	{
-		std::cout << strvector[i] << " ";
+		std::cout << strvector[i] <<;
 	}
 
 	
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 	//String sub = s.substr(2, 4);
 	
 	//std::cout << sub << std::endl;

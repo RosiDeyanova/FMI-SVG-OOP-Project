@@ -1,5 +1,5 @@
 ﻿  SVG_2.cpp
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(76,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(76,31): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(305,31): warning C4267: 'argument': conversion from 'size_t' to 'char', possible loss of data
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(142,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(138): message : while compiling class template member function 'Vector<String> &Vector<String>::push_back(const T &)'

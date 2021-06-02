@@ -18,7 +18,7 @@ public:
 
 	void print()const;
 	int length()const;
-	int find(char c);
+	int find(char c, int lastToken);
 	String substr(size_t startPos, size_t length);
 	String toUpper(String s);
 	String toLower(String s);
@@ -71,15 +71,15 @@ String String::substr(size_t startPos, size_t endPos) {
 	return retstr;
 }
 
-int String::find(char c)
+int String::find(char c,int lastToken)
 {
-	for (size_t i = 0; i < this->length(); i++)
+	for (size_t i = lastToken; i < this->length(); i++)
 	{
 		if (this->str[i] == c) {
 			return i;
 		}
 	}
-	return -1;
+	return this->length();
 }
 
 Vector<String> String::tokenize(char c)
@@ -91,8 +91,8 @@ Vector<String> String::tokenize(char c)
 
 	int lastToken = 0;
 	int endToken = 0;
-	while (endToken != -1) {
-		endToken = this->find(c);
+	while (endToken != this->length()) {
+		endToken = this->find(c, lastToken);
 		retvec.push_back(this->substr(lastToken, endToken));
 		lastToken = endToken+1;
 	}
