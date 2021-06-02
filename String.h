@@ -24,6 +24,7 @@ public:
 	String toLower(String s);
 	String toString(size_t x);
 	Vector<String> tokenize(char c);
+	int Int_Parse(const char* txt);
 	// Vector<String*> tokens <- вектор от показатели
 	// Vector<String> tokens <- вектор от Стринг обекти ( копия )
 	
@@ -69,6 +70,36 @@ String String::substr(size_t startPos, size_t endPos) {
 
 	retstr[endPos - startPos] = 0;
 	return retstr;
+}
+
+int String::Int_Parse(const char* txt) 
+{
+	int sum = 0;
+	bool isNegative = txt[0] == '-';
+	if (isNegative)
+	{
+		for (size_t i = 1; i < strlen(txt); i++)
+		{
+			if (txt[i] < '0' || txt[i] > '9') { return INT_MIN; }
+			sum += (txt[i] - '0');
+			sum *= 10;
+		}
+	}
+	else
+	{
+		for (size_t i = 0; i < strlen(txt); i++)
+		{
+			if (txt[i] < '0' || txt[i] > '9') { return INT_MIN; }
+			sum += (txt[i] - '0');
+			sum *= 10;
+		}
+	}
+
+	if (isNegative)
+	{
+		return (sum / 10) * -1;
+	}
+	return sum / 10;
 }
 
 int String::find(char c,int lastToken)
