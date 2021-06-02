@@ -1,11 +1,24 @@
 ﻿  SVG_2.cpp
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(44,47): warning C4305: 'argument': truncation from 'int' to '_Elem'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(76,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(305,31): warning C4267: 'argument': conversion from 'size_t' to 'char', possible loss of data
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(142,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(138): message : while compiling class template member function 'Vector<String> &Vector<String>::push_back(const T &)'
           with
           [
-              _Elem=char
+              T=String
           ]
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(44,41): warning C4309: 'argument': truncation of constant value
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(23,8): warning C4101: 'text': unreferenced local variable
-SVG_2.obj : error LNK2019: unresolved external symbol "public: __thiscall Vector<char *>::Vector<char *>(void)" (??0?$Vector@PAD@@QAE@XZ) referenced in function _main
-SVG_2.obj : error LNK2019: unresolved external symbol "public: __thiscall Vector<char *>::~Vector<char *>(void)" (??1?$Vector@PAD@@QAE@XZ) referenced in function _main
-C:\Users\Rosi Deyanova\source\repos\SVG_2\Debug\SVG_2.exe : fatal error LNK1120: 2 unresolved externals
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(96): message : see reference to function template instantiation 'Vector<String> &Vector<String>::push_back(const T &)' being compiled
+          with
+          [
+              T=String
+          ]
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(86): message : see reference to class template instantiation 'Vector<String>' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(55,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(52): message : while compiling class template member function 'void Vector<String>::resize(void)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(139): message : see reference to function template instantiation 'void Vector<String>::resize(void)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(91): message : while compiling class template member function 'Vector<String>::Vector(const Vector<String> &)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(100): message : see reference to function template instantiation 'Vector<String>::Vector(const Vector<String> &)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(69,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(65): message : while compiling class template member function 'void Vector<String>::copy(const Vector<String> &)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(92): message : see reference to function template instantiation 'void Vector<String>::copy(const Vector<String> &)' being compiled
+  SVG_2.vcxproj -> C:\Users\Rosi Deyanova\source\repos\SVG_2\Debug\SVG_2.exe

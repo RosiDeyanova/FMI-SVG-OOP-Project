@@ -11,7 +11,7 @@ private:
 	char fill[10];
 public:
 	Rectangle();
-	Rectangle(int width, int height, const char* fill);
+	Rectangle(char* name, int x, int y, char* stroke, int strokeWidth, int width, int height, const char* fill);
 	void print();
 };
 
