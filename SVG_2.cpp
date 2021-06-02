@@ -9,55 +9,18 @@
 #include "Line.h"
 #include "Vector.h"
 #include "String.h"
+#include "functions.h"
 using namespace std;
-
-void openFile(const char* input_file_name)
-{
-	
-	ifstream MyFile;
-	MyFile.open(input_file_name);
-
-	if (MyFile.is_open())
-	{
-		while (!MyFile.eof())
-		{
-			char* str = new char[1024];
-			
-			MyFile.getline(str, 1000);
-			String string = str;
-			Vector <String> words = string.tokenize(' ');
-			
-		}
-			MyFile.close();
-			std::cout << "\nSuccessfully opened " << std::endl;
-			
-	}
-};
-//add in open command
 
 
 int main()
 {
-	/*String s = "Hello this is Hot Garbage!";
-	Vector<String> strvector = s.tokenize(' ');
-	for (size_t i = 0; i < strvector.getSize(); i++)
-	{
-		std::cout << strvector[i] <<;
-	}
-
-	
-	std::cout << std::endl;*/
-	//String sub = s.substr(2, 4);
-	
-	//std::cout << sub << std::endl;
 	char console_input[120];
 	char command[64] = "open test.txt";
 	//cin.getline(command, 64);
 	ofstream outputstream;
 	ifstream inputstream;
-	
-	//cin >> command;
-	//command line
+
 		if (strncmp(command, "open", 4) == 0)
 		{
 		
