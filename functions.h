@@ -75,7 +75,7 @@ void openFile(const char* input_file_name)
 			MyFile.getline(str, 1000); //gets every new line
 			String string = str;
 			Vector <String> words = string.tokenize(' '); //goes through every line and separates the words by space, than it pushes them into a vector
-			Construction::recogniseShape(words);
+			recogniseShape(words);
 		}
 		MyFile.close();
 		std::cout << "\nSuccessfully opened " << std::endl;
