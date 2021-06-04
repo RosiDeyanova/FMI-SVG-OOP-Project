@@ -10,16 +10,16 @@
 #include "String.h"
 using namespace std;
 
-Rectangle constructRectangle(Vector<String> words) 
+Rectangle constructRectangle(Vector<String> words)
 {
 	Rectangle rec;
 	int counter = 0;//counts the "
 	String insideInfo;
-	for (size_t i = 0; i < words.getSize(); i++)
+	for (size_t i = 0; i < words.getSize(); i++) //goes through every element in vector words
 	{
-		for (size_t j = 0; j < words[i].length(); j++)
+		for (size_t j = 0; j < words[i].length(); j++) //goes through every char* in words[i]
 		{
-			if (words[i][j] == 'x')
+			if (words[i][0] == 'x' && words[i][1] == '=') //checks if the char* starts with x=
 			{
 				j += 2; //skipping the ="
 				while (words[i][j] == '"')
@@ -27,9 +27,9 @@ Rectangle constructRectangle(Vector<String> words)
 					insideInfo = insideInfo + words[i][j];
 					j++;
 				}
-				//rec.setX(Int_Parse(insideInfo));
+				rec.setX(insideInfo.Int_Parse(insideInfo.getString()));
 			}
-			if (words[i][j] == 'y')
+			if (words[i][j] == 'y' && words[i][j + 1] == '=')
 			{
 				j += 2; //skipping the ="
 				while (words[i][j] == '"')
@@ -37,7 +37,7 @@ Rectangle constructRectangle(Vector<String> words)
 					insideInfo = insideInfo + words[i][j];
 					j++;
 				}
-				//rec.setY(Int_Parse(insideInfo));
+				rec.setY(insideInfo.Int_Parse(insideInfo.getString()));
 			}
 
 		}
@@ -47,18 +47,19 @@ Rectangle constructRectangle(Vector<String> words)
 
 	return rec;
 }
-void recogniseShape( Vector<String> words)
+void recogniseShape(Vector<String> words)
 {
 	Vector<Shape*>shapes;
-	if (words[0] == "<rect") 
+	if (words[0] == "<rect")
 	{
-		Rectangle rec;
+		Rectangle rec = constructRectangle(words);
 		shapes.push_back(&rec);
 	}
 	else if (words[0] == "<circle") {}
 	else if (words[0] == "<line") {}
 
 }
+
 //checks the first element of every vector and calls function constructRec, constructCir, constructLine and then they will be pushed into a vector
 void openFile(const char* input_file_name)
 {
@@ -74,7 +75,7 @@ void openFile(const char* input_file_name)
 			MyFile.getline(str, 1000); //gets every new line
 			String string = str;
 			Vector <String> words = string.tokenize(' '); //goes through every line and separates the words by space, than it pushes them into a vector
-
+			Construction::recogniseShape(words);
 		}
 		MyFile.close();
 		std::cout << "\nSuccessfully opened " << std::endl;
