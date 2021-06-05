@@ -14,6 +14,7 @@ using namespace std;
 int main()
 {
 	char console_input[120];
+	char* openFileName = new char[10];
 	Vector<Shape*> shapes;
 	bool isFileOpen = false;
 	char command[64];// = "open test.txt";
@@ -29,6 +30,7 @@ int main()
 			strcpy_s(console_input, strlen(command) - 4, &(command[5]));
 
 			inputstream.open(console_input);
+			openFileName = console_input;
 			isFileOpen = true;
 			int maxSize = 16;
 			char* hexarray = new char[maxSize];
@@ -67,13 +69,17 @@ int main()
 		}
 		else if (strncmp(command, "save", 4) == 0)
 		{
-			cout << "Successfully saved";
+			save(shapes, openFileName);
+			cout << "Successfully saved" << endl;
 		}
 		else if (strncmp(command, "saveas", 6) == 0)
 		{
-			cout << "is in saveas command";
+			strcpy_s(console_input, strlen(command) - 6, &(command[7]));
+			save(shapes, console_input);
+			cout << "Successfully saved as" << console_input << endl;
+
 		}
-		
+
 
 		//functional commands
 		else if (strncmp(command, "print", 5) == 0)
@@ -93,34 +99,34 @@ int main()
 			if (input_shape[0] == "rectangle")
 			{
 				char* name = (input_shape[0].getString());
-				int x = input_shape[1].Int_Parse(input_shape[1].getString());
-				int y = input_shape[2].Int_Parse(input_shape[2].getString());
-				int width = input_shape[3].Int_Parse(input_shape[3].getString());
-				int height = input_shape[4].Int_Parse(input_shape[4].getString());
+				int x = input_shape[1].toInt(input_shape[1].getString());
+				int y = input_shape[2].toInt(input_shape[2].getString());
+				int width = input_shape[3].toInt(input_shape[3].getString());
+				int height = input_shape[4].toInt(input_shape[4].getString());
 				char* color = input_shape[5].getString();
 				shapes.push_back(new Rectangle(name, x, y, width, height, color));
-				cout << "Successfully created rectangle (" << shapes.getSize() << ")"<<endl;
+				cout << "Successfully created rectangle (" << shapes.getSize() << ")" << endl;
 			}
 			else if (input_shape[0] == "circle")
 			{
 				char* name = (input_shape[0].getString());
-				int x = input_shape[1].Int_Parse(input_shape[1].getString());
-				int y = input_shape[2].Int_Parse(input_shape[2].getString());
-				int r = input_shape[3].Int_Parse(input_shape[3].getString());
+				int x = input_shape[1].toInt(input_shape[1].getString());
+				int y = input_shape[2].toInt(input_shape[2].getString());
+				int r = input_shape[3].toInt(input_shape[3].getString());
 				char* color = input_shape[4].getString();
 				shapes.push_back(new Circle(name, x, y, color, r));
-				cout << "Successfully created circle (" << shapes.getSize() << ")"<<endl;
+				cout << "Successfully created circle (" << shapes.getSize() << ")" << endl;
 			}
 			else if (input_shape[0] == "line")
 			{
 				char* name = (input_shape[0].getString());
-				int x = input_shape[1].Int_Parse(input_shape[1].getString());
-				int y = input_shape[2].Int_Parse(input_shape[2].getString());
-				int x2 = input_shape[3].Int_Parse(input_shape[3].getString());
-				int y2 = input_shape[4].Int_Parse(input_shape[4].getString());
+				int x = input_shape[1].toInt(input_shape[1].getString());
+				int y = input_shape[2].toInt(input_shape[2].getString());
+				int x2 = input_shape[3].toInt(input_shape[3].getString());
+				int y2 = input_shape[4].toInt(input_shape[4].getString());
 				char* color = input_shape[5].getString();
 				shapes.push_back(new Line(name, x, y, color, x2, y2));
-				cout << "Successfully created line (" << shapes.getSize() << ")"<<endl;
+				cout << "Successfully created line (" << shapes.getSize() << ")" << endl;
 			}
 			//take console_input, put it in a vector, check the first element and call a constructor then add it to the shapes vector
 
@@ -129,10 +135,19 @@ int main()
 		}
 		else if (strncmp(command, "erase", 5) == 0)
 		{
+
 			strcpy_s(console_input, strlen(command) - 5, &(command[6]));
 			String input = console_input;
-			int position = input.Int_Parse(input.getString());
-			shapes.eraseAt(max(position-1, 0));
+			int position = input.toInt(input.getString());
+			if (position > shapes.getSize())
+			{
+				cout << "There is no figure number " << position << "!"<<endl;
+			}
+			else 
+			{
+				shapes.eraseAt(max(position - 1, 0));
+				cout << "The figure is erased"<<endl;
+			}
 		}
 		else if (strncmp(command, "translate", 9) == 0)
 		{
@@ -143,14 +158,16 @@ int main()
 			input_shape = input.tokenize(' ', false);
 			if (input_shape[0][0] >= '1' && input_shape[0][0] <= '9')//checking if the second word is a number
 			{
-				int x = shapes[input_shape[0].Int_Parse(input_shape[0].getString()) - 1]->getX();
-				int y = shapes[input_shape[0].Int_Parse(input_shape[0].getString()) - 1]->getY();
+				int x = shapes[input_shape[0].toInt(input_shape[0].getString()) - 1]->getX();
+				int y = shapes[input_shape[0].toInt(input_shape[0].getString()) - 1]->getY();
 				String addedX = checkTranslation(input_shape[2]).getString();
 				String addedY = checkTranslation(input_shape[1]).getString();
 
-				int num = input_shape[0].Int_Parse(input_shape[0].getString());
-				shapes[num-1]->setX(x + addedX.Int_Parse(addedX.getString()));
-				shapes[num-1]->setY(y + addedY.Int_Parse(addedY.getString()));
+				int num = input_shape[0].toInt(input_shape[0].getString());
+				shapes[num - 1]->setX(x + addedX.toInt(addedX.getString()));
+				shapes[num - 1]->setY(y + addedY.toInt(addedY.getString()));
+
+				cout << "Translated figure " << input_shape[0] << endl;
 
 
 			}
@@ -162,10 +179,10 @@ int main()
 				{
 					int x = shapes[i]->getX();
 					int y = shapes[i]->getY();
-					shapes[i]->setX(x + addedX.Int_Parse(addedX.getString()));
-					shapes[i]->setY(y + addedY.Int_Parse(addedY.getString()));
+					shapes[i]->setX(x + addedX.toInt(addedX.getString()));
+					shapes[i]->setY(y + addedY.toInt(addedY.getString()));
 				}
-			
+				cout << "All figures are translated" << endl;
 			}
 
 		}

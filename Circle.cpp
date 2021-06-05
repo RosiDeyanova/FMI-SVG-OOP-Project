@@ -18,6 +18,13 @@ void Circle::print()
 	std::cout << "circle " << this->x << " " << this->y << " " << this->r << " " << this->color<< std::endl;
 }
 
+void Circle::writeOut(std::ostream& out)
+{
+	out << "  <circle x=\"" << this->getX() << "\" y=\"" << this->getY() << "\" r=\"" << this->getR() << "\"";
+	out << " fill=\"" << this->getColor() << "\" />\n";
+
+}
+
 void Circle::setR(int r)
 {
 	this->r = r;

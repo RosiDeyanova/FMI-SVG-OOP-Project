@@ -12,6 +12,7 @@ public:
 	Circle();
 	Circle(char* name, int x, int y, char* color, int r);
 	void print() override;
+	void writeOut(std::ostream& out) override;
 	void setR(int r);
 	int getR();
 

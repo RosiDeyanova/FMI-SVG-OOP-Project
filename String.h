@@ -26,7 +26,7 @@ public:
 	String toLower(String s);
 	String toString(size_t x);
 	Vector<String> tokenize(char c, bool isReadingFromFile);
-	int Int_Parse(const char* txt);
+	int toInt(const char* txt);
 	char* getString() 
 	{
 		return this->str;
@@ -78,7 +78,7 @@ String String::substr(size_t startPos, size_t endPos) {
 	return retstr;
 }
 
-int String::Int_Parse(const char* txt) 
+int String::toInt(const char* txt) 
 {
 	int sum = 0;
 	bool isNegative = txt[0] == '-';

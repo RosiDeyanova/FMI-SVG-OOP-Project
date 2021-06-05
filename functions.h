@@ -47,12 +47,12 @@ Rectangle* constructRectangle(Vector<String>& words)
 		if (type == "x")
 		{
 			String insideInfo = getInfo(words[i], type);
-			rec->setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			rec->setX(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}   //fills up the x
 		else if (type == "y")
 		{
 			String insideInfo = getInfo(words[i], type);
-			rec->setY(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			rec->setY(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 		else if (type == "fill")
 		{
@@ -63,12 +63,12 @@ Rectangle* constructRectangle(Vector<String>& words)
 		else if (type == "width")
 		{
 			String insideInfo = getInfo(words[i], type);
-			rec->setWidth(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			rec->setWidth(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 		else if (type == "height")
 		{
 			String insideInfo = getInfo(words[i], type);
-			rec->setHeight(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			rec->setHeight(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 
 	}
@@ -83,12 +83,12 @@ Circle* constructCircle(Vector<String>& words)
 		if (type == "x")
 		{
 			String insideInfo = getInfo(words[i], type);
-			cir->setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			cir->setX(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}   //fills up the x
 		else if (type == "y")
 		{
 			String insideInfo = getInfo(words[i], type);
-			cir->setY(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			cir->setY(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 		else if (type == "fill")
 		{
@@ -99,7 +99,7 @@ Circle* constructCircle(Vector<String>& words)
 		else if (type == "r")
 		{
 			String insideInfo = getInfo(words[i], type);
-			cir->setR(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			cir->setR(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 
 	}
@@ -114,12 +114,12 @@ Line* constructLine(Vector<String>& words)
 		if (type == "x")
 		{
 			String insideInfo = getInfo(words[i], type);
-			line->setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			line->setX(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}   //fills up the x
 		else if (type == "y")
 		{
 			String insideInfo = getInfo(words[i], type);
-			line->setY(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			line->setY(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 		else if (type == "fill")
 		{
@@ -130,12 +130,12 @@ Line* constructLine(Vector<String>& words)
 		else if (type == "x2")
 		{
 			String insideInfo = getInfo(words[i], type);
-			line->setX2(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			line->setX2(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 		else if (type == "y2")
 		{
 			String insideInfo = getInfo(words[i], type);
-			line->setY2(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+			line->setY2(insideInfo.toInt(insideInfo.getString())); //parses the info from String to int
 		}
 
 	}
@@ -208,4 +208,23 @@ String checkTranslation(String word)
 		}
 	}
 	return info;
+}
+
+void save(Vector<Shape*>& shapes, const char* filename)
+{
+	std::ofstream out;
+	out.open(filename);
+
+	out << "< ? xml version = \"1.0\" standalone = \"no\" ? >" << std::endl
+		<< "<!DOCTYPE svg PUBLIC \" -//W3C//DTD SVG 1.1//EN\"" << std::endl
+		<< "  \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">" << std::endl
+		<< "<svg>" << std::endl;
+
+	for (size_t i = 0; i < shapes.getSize(); i++)
+	{
+		shapes[i]->writeOut(out);
+	}
+
+	out << "</svg>" << std::endl;
+	out.close();
 }
