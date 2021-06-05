@@ -11,15 +11,7 @@ Circle::Circle() :Shape()
 }
 
 Circle::Circle(char* name,int x, int y,char* color, int r) : Shape(name,x, y, color) {
-	delete[] this->name;
-	this->name = new char[strlen(name) + 1];
-	strcpy_s(this->name, strlen(name) + 1, name);
 	this->r= r;
-	this->x = x;
-	this->y = y;
-	delete[] this->color;
-	this->color = new char[strlen(color) + 1];
-	strcpy_s(this->color, strlen(color) + 1, color);
 }
 void Circle::print()
 {

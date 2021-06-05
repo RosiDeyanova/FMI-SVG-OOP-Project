@@ -11,16 +11,8 @@ Line::Line() :Shape()
 	strcpy_s(this->color, 5, "none");
 }
 Line::Line(char* name, int x, int y, char* color, int x2, int y2) : Shape(name,x, y,color) {
-	delete[] this->name;
-	this->name = new char[strlen(name) + 1];
-	strcpy_s(this->name, strlen(name) + 1, name);
 	this->x2 = x2;
 	this->y2 = y2;
-	this->x = x;
-	this->y = y;
-	delete[] this->color;
-	this->color = new char[strlen(color) + 1];
-	strcpy_s(this->color, strlen(color) + 1, color);
 
 }
 void Line::print()

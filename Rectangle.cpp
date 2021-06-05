@@ -23,17 +23,8 @@ void Rectangle::setHeight(int height)
 }
 
 Rectangle::Rectangle(char* name,int x,int y,int width, int height, char* color) :Shape(name,x, y, color) {
-	delete[] this->name;
-	this->name = new char[strlen(name)+1];
-	strcpy_s(this->name, strlen(name) + 1, name);
 	this->width = width;
 	this->height = height;
-	this->x = x;
-	this->y = y;
-	delete[] this->color;
-	this->color = new char[strlen(color) + 1];
-	strcpy_s(this->color, strlen(color) + 1, color);
-
 }
 
 void Rectangle::print() 

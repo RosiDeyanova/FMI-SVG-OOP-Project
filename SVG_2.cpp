@@ -87,18 +87,48 @@ int main()
 			input_shape = input.tokenize(' ', false);
 			if (input_shape[0]=="rectangle")
 			{
-				Rectangle rec((input_shape[0].getString()), 
-							  (input_shape[1].Int_Parse(input_shape[1].getString())), 
-							  (input_shape[2].Int_Parse(input_shape[2].getString())),
-							  (input_shape[3].Int_Parse(input_shape[3].getString())),
-							  (input_shape[4].Int_Parse(input_shape[4].getString())),
-							  (input_shape[1].getString()));
+				char* name= (input_shape[0].getString());
+				int x= input_shape[1].Int_Parse(input_shape[1].getString());
+				int y= input_shape[2].Int_Parse(input_shape[2].getString());
+				int width= input_shape[3].Int_Parse(input_shape[3].getString());
+				int height= input_shape[4].Int_Parse(input_shape[4].getString());
+				char* color= input_shape[5].getString();
+				Rectangle rec(name, x, y, width, height, color);
 				shapes.push_back(&rec);
-				cout << "Successfully created rectangle";
+				cout << "Successfully created rectangle ("<<shapes.getSize()<<")";
+			}
+			else if (input_shape[0] == "circle")
+			{
+				char* name = (input_shape[0].getString());
+				int x = input_shape[1].Int_Parse(input_shape[1].getString());
+				int y = input_shape[2].Int_Parse(input_shape[2].getString());
+				int r = input_shape[3].Int_Parse(input_shape[3].getString());
+				char* color = input_shape[5].getString();
+				Circle cir(name, x, y, color,r);
+				shapes.push_back(&cir);
+				cout << "Successfully created circle (" << shapes.getSize() << ")";
+			}
+			else if (input_shape[0] == "line")
+			{
+				char* name = (input_shape[0].getString());
+				int x = input_shape[1].Int_Parse(input_shape[1].getString());
+				int y = input_shape[2].Int_Parse(input_shape[2].getString());
+				int x2 = input_shape[3].Int_Parse(input_shape[3].getString());
+				int y2 = input_shape[4].Int_Parse(input_shape[4].getString());
+				char* color = input_shape[5].getString();
+				Line line(name, x, y, color, x2,y2);
+				shapes.push_back(&line);
+				cout << "Successfully created line (" << shapes.getSize() << ")";
 			}
 			//take console_input, put it in a vector, check the first element and call a constructor then add it to the shapes vector
 
 
+
+		}
+		else if (strncmp(command, "erase", 5) == 0)
+		{
+			strcpy_s(console_input, strlen(command) - 5, &(command[6]));
+			int position = (int)console_input;
 
 		}
 	}
