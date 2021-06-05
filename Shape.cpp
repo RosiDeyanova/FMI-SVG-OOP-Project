@@ -27,6 +27,8 @@ Shape::Shape(char* name, int x, int y, char* color)
 	strcpy_s(this->color, strlen(color) + 1, color);
 }
 
+
+
 void Shape::setX(int x)
 {
 	this->x = x;
@@ -52,6 +54,11 @@ int Shape::getX()
 int Shape::getY()
 {
 	return this->y;
+}
+
+char* Shape::getColor()
+{
+	return this->color;
 }
 
 

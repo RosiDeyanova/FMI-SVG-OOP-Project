@@ -1,5 +1,6 @@
 #pragma once
 #include<cstring>
+#include<fstream>
 class Shape
 {
 public:
@@ -9,11 +10,13 @@ public:
 
 	char* getName() { return this->name; }
 	virtual void print() = 0;
+	//virtual void writeOut(std::ostream& out) = 0;
 	void setX(int x);
 	void setY(int y);
 	void setColor(char* color);
 	int getX();
 	int getY();
+	char* getColor();
 
 
 protected:

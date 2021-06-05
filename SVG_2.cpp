@@ -15,6 +15,7 @@ int main()
 {
 	char console_input[120];
 	Vector<Shape*> shapes;
+	bool isFileOpen = false;
 	char command[64];// = "open test.txt";
 	while (true) {
 		cin.getline(command, 64);
@@ -28,26 +29,13 @@ int main()
 			strcpy_s(console_input, strlen(command) - 4, &(command[5]));
 
 			inputstream.open(console_input);
-			cout << "Your file is open.";
+			isFileOpen = true;
 			int maxSize = 16;
 			char* hexarray = new char[maxSize];
 			shapes = openFile(console_input, shapes);
 
 
 			delete[] hexarray;
-		}
-		else if (strncmp(command, "close", 5) == 0)
-		{
-			inputstream.close();
-			cout << "Your file is closed.";
-		}
-		else if (strncmp(command, "save", 4) == 0)
-		{
-			cout << "Successfully saved";
-		}
-		else if (strncmp(command, "saveas", 6) == 0)
-		{
-			cout << "is in saveas command";
 		}
 		else if (strncmp(command, "exit", 4) == 0)
 		{
@@ -69,6 +57,23 @@ int main()
 				<< "translate vertical=<n> horizontal=<p>" << std::endl
 				<< "within <option>" << std::endl;
 		}
+		else if (isFileOpen == false) { cout << "There is no open file"; }
+		else if (strncmp(command, "close", 5) == 0)
+		{
+			shapes.empty();
+			inputstream.close();
+			isFileOpen = false;
+			cout << "Your file is closed.";
+		}
+		else if (strncmp(command, "save", 4) == 0)
+		{
+			cout << "Successfully saved";
+		}
+		else if (strncmp(command, "saveas", 6) == 0)
+		{
+			cout << "is in saveas command";
+		}
+		
 
 		//functional commands
 		else if (strncmp(command, "print", 5) == 0)
@@ -127,8 +132,7 @@ int main()
 			strcpy_s(console_input, strlen(command) - 5, &(command[6]));
 			String input = console_input;
 			int position = input.Int_Parse(input.getString());
-			shapes.eraseAt(max(position - 1, 0));
-
+			shapes.eraseAt(max(position-1, 0));
 		}
 		else if (strncmp(command, "translate", 9) == 0)
 		{

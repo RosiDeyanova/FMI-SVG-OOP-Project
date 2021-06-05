@@ -24,6 +24,7 @@ public:
 	Vector<T>& push_front(const T& New);
 	Vector<T>& push_back(const T& New);
 	Vector<T>& eraseAt(size_t n);
+	Vector<T>& empty();
 	void removeAtIndex(int index);
 	void removeElement(const T& element);
 	void insertAtPos(int index, const T& element);
@@ -115,6 +116,7 @@ void Vector<T>::print()
 	}
 }
 
+
 template <class T>
 Vector<T>& Vector<T>::push_front(const T& New)
 {
@@ -159,13 +161,19 @@ inline Vector<T>& Vector<T>::eraseAt(size_t n)
 	{
 		newElement[i] = this->data[i];
 	}
-	for (size_t i = 0; i < size; i++)
+	for (size_t i = n; i < size; i++)
 	{
 		newElement[i] = this->data[i + 1];
 	}
 	delete[] this->data;
 	this->data = newElement;
 	this->size--;
+	return *this;
+}
+
+template<class T>
+inline Vector<T>& Vector<T>::empty()
+{	this->size = 0;
 	return *this;
 }
 

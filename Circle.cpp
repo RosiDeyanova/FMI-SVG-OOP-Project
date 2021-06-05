@@ -22,3 +22,8 @@ void Circle::setR(int r)
 {
 	this->r = r;
 }
+
+int Circle::getR()
+{
+	return this->r;
+}

@@ -13,6 +13,7 @@ public:
 	Circle(char* name, int x, int y, char* color, int r);
 	void print() override;
 	void setR(int r);
+	int getR();
 
 
 };
