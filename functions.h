@@ -9,78 +9,160 @@
 #include "String.h"
 using namespace std;
 
-String getType(String word) 
+String getType(String& word)
 {
 	String type;
 	for (size_t i = 0; i < word.length(); i++)
 	{
-		while (word[i]!='=')
+		while (word[i] != '=')
 		{
 			type = type + word[i];
+			i++;
 		}
+		break;
 	}
 
 	return type;
 }
-String getInfo(String word) {
+String getInfo(String& word, const String& type) {
 	String info;
+	for (size_t i = type.length() + 2; i < word.length(); i++)
+	{
+		while (word[i] != '"')
+		{
+			info = info + word[i];
+			i++;
+		}
+		break;
+	}
+
 	return info;
 }
-
-Rectangle constructRectangle(Vector<String> words)
+Rectangle* constructRectangle(Vector<String>& words)
 {
-	Rectangle rec;
-	int counter = 0;//counts the "
-	String insideInfo;
-	for (size_t i = 0; i < words.getSize(); i++) //goes through every element in vector words
+	Rectangle* rec = new Rectangle();
+	for (size_t i = 1; i < words.getSize() - 1; i++) //goes through every element in vector words
 	{
-		for (size_t j = 0; j < words[i].length(); j++) //goes through every char* in words[i]
+		String type = getType(words[i]);
+		if (type == "x")
 		{
-			if (words[i][0] == 'x' && words[i][1] == '=') //checks if the char* starts with x=
-			{
-				j += 3; //skipping the ="
-				while (words[i][j] != '"') //gets the info between the " .... "
-				{
-					insideInfo = insideInfo + words[i][j];
-					j++;
-				}
-				rec.setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
-				insideInfo.empty(); //empties the String
-			}   //fills up the x
-			if (words[i][0] == 'y' && words[i][1] == '=')
-			{
-				j += 3; //skipping the ="
-				while (words[i][j] != '"')
-				{
-					insideInfo = insideInfo + words[i][j];
-					j++;
-				}
-				rec.setY(insideInfo.Int_Parse(insideInfo.getString()));
-				insideInfo.empty();
-			} //fills up the y
-			if ()
+			String insideInfo = getInfo(words[i], type);
+			rec->setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}   //fills up the x
+		else if (type == "y")
+		{
+			String insideInfo = getInfo(words[i], type);
+			rec->setY(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+		else if (type == "fill")
+		{
+			String insideInfo = getInfo(words[i], type);
+			char* color = insideInfo.getString();
+			rec->setColor(color);
+		}
+		else if (type == "width")
+		{
+			String insideInfo = getInfo(words[i], type);
+			rec->setWidth(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+		else if (type == "height")
+		{
+			String insideInfo = getInfo(words[i], type);
+			rec->setHeight(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
 		}
 
 	}
-
-
 	return rec;
 }
-void recogniseShape(Vector<String> words)
+Circle* constructCircle(Vector<String>& words)
 {
-	Vector<Shape*>shapes;
+	Circle* cir = new Circle();
+	for (size_t i = 1; i < words.getSize() - 1; i++) //goes through every element in vector words
+	{
+		String type = getType(words[i]);
+		if (type == "x")
+		{
+			String insideInfo = getInfo(words[i], type);
+			cir->setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}   //fills up the x
+		else if (type == "y")
+		{
+			String insideInfo = getInfo(words[i], type);
+			cir->setY(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+		else if (type == "fill")
+		{
+			String insideInfo = getInfo(words[i], type);
+			char* color = insideInfo.getString();
+			cir->setColor(color);
+		}
+		else if (type == "r")
+		{
+			String insideInfo = getInfo(words[i], type);
+			cir->setR(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+
+	}
+	return cir;
+}
+Line* constructLine(Vector<String>& words)
+{
+	Line* line = new Line();
+	for (size_t i = 1; i < words.getSize() - 1; i++) //goes through every element in vector words
+	{
+		String type = getType(words[i]);
+		if (type == "x")
+		{
+			String insideInfo = getInfo(words[i], type);
+			line->setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}   //fills up the x
+		else if (type == "y")
+		{
+			String insideInfo = getInfo(words[i], type);
+			line->setY(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+		else if (type == "fill")
+		{
+			String insideInfo = getInfo(words[i], type);
+			char* color = insideInfo.getString();
+			line->setColor(color);
+		}
+		else if (type == "x2")
+		{
+			String insideInfo = getInfo(words[i], type);
+			line->setX2(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+		else if (type == "y2")
+		{
+			String insideInfo = getInfo(words[i], type);
+			line->setY2(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+		}
+
+	}
+	return line;
+}
+Shape* recogniseShape(Vector<String>& words)
+{
 	if (words[0] == "<rect")
 	{
-		Rectangle rec = constructRectangle(words);
-		shapes.push_back(&rec);
+		Rectangle* rec = constructRectangle(words);
+		return rec;
 	}
-	else if (words[0] == "<circle") {}
-	else if (words[0] == "<line") {}
+	else if (words[0] == "<circle")
+	{
+		Circle* cir = constructCircle(words);
+		return cir;
+	}
+	else if (words[0] == "<line")
+	{
+		Line* line = constructLine(words);
+		return line;
+	}
 
 }
 
 //checks the first element of every vector and calls function constructRec, constructCir, constructLine and then they will be pushed into a vector
-void openFile(const char* input_file_name)
+Vector<Shape*> openFile(const char* input_file_name, Vector<Shape*>shapes)
 {
 	ifstream MyFile;
 	MyFile.open(input_file_name);
@@ -93,11 +175,19 @@ void openFile(const char* input_file_name)
 
 			MyFile.getline(str, 1000); //gets every new line
 			String string = str;
-			Vector <String> words = string.tokenize(' '); //goes through every line and separates the words by space, than it pushes them into a vector
-			recogniseShape(words);
+			Vector <String> words = string.tokenize(' ',true); //goes through every line and separates the words by space, than it pushes them into a vector
+			String firstWord = words[0];
+			if (firstWord == "<rect" || firstWord == "<circle" || firstWord == "<line")
+			{
+				Shape* rec = recogniseShape(words);
+				shapes.push_back(rec); //pushes all shapes into a vector
+			}
+
 		}
+
 		MyFile.close();
 		std::cout << "\nSuccessfully opened " << std::endl;
+		return shapes;
 
 	}
 };

@@ -2,45 +2,41 @@
 
 Rectangle::Rectangle():Shape()
 {
-	this->name = new char[6];
-	strcpy_s(this->name, 5, "none");
-	this->width = 0;
-	this->height = 0;
-}
-
-
-void Rectangle::setName() 
-{
 	delete[] this->name;
 	this->name = new char[10];
 	strcpy_s(this->name, 10, "rectangle");
+	this->width = 0;
+	this->height = 0;
+	this->color = new char[6];
+	strcpy_s(this->color, 5, "none");
 }
 
-void Rectangle::setX(int x)
+
+void Rectangle::setWidth(int width)
 {
-	this->x = x;
+	this->width = width;
 }
 
-void Rectangle::setY(int y)
+void Rectangle::setHeight(int height)
 {
-	this->y = y;
+	this->height = height;
 }
 
-void Rectangle::setColor(char* color)
-{
-	this->color = color;
-}
-
-Rectangle::Rectangle(char* name,int x,int y,char* color,int width, int height) :Shape(name,x, y, color) {
+Rectangle::Rectangle(char* name,int x,int y,int width, int height, char* color) :Shape(name,x, y, color) {
 	delete[] this->name;
 	this->name = new char[strlen(name)+1];
 	strcpy_s(this->name, strlen(name) + 1, name);
 	this->width = width;
 	this->height = height;
+	this->x = x;
+	this->y = y;
+	delete[] this->color;
+	this->color = new char[strlen(color) + 1];
+	strcpy_s(this->color, strlen(color) + 1, color);
 
 }
 
 void Rectangle::print() 
 {
-	std::cout << "rectangle " << this->x << " " << this->y << " " << this->width << " " << this->height << " " << std::endl;
+	std::cout << "rectangle " << this->x << " " << this->y << " " << this->width << " " << this->height << " "<< this->color << std::endl;
 }

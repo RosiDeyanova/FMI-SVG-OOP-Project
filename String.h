@@ -25,7 +25,7 @@ public:
 	String toUpper(String s);
 	String toLower(String s);
 	String toString(size_t x);
-	Vector<String> tokenize(char c);
+	Vector<String> tokenize(char c, bool isReadingFromFile);
 	int Int_Parse(const char* txt);
 	char* getString() 
 	{
@@ -119,7 +119,7 @@ int String::find(char c,int lastToken)
 	return this->length();
 }
 
-Vector<String> String::tokenize(char c)
+Vector<String> String::tokenize(char c, bool isReadingFromFile)
 {
 	Vector<String> retvec;
 	// да намерим първия спейс
@@ -127,7 +127,10 @@ Vector<String> String::tokenize(char c)
 	// да влезем в цикъл и да спамим .find докато не върне -1
 
 	int lastToken = 0;
-	lastToken= this->find('<', lastToken);
+	if (isReadingFromFile==true)
+	{
+		lastToken = this->find('<', lastToken);
+	}
 	int endToken = 0;
 	while (endToken != this->length()) {
 		endToken = this->find(c, lastToken);

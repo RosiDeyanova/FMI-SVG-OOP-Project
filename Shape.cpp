@@ -26,6 +26,21 @@ Shape::Shape(char* name, int x, int y, char* color)
 	strcpy_s(this->color, strlen(color) + 1, color);
 }
 
+void Shape::setX(int x)
+{
+	this->x = x;
+}
 
+void Shape::setY(int y)
+{
+	this->y = y;
+}
+
+void Shape::setColor(char* color)
+{
+	delete[] this->color;
+	this->color = new char[strlen(color) + 1];
+	strcpy_s(this->color, strlen(color) + 1, color);
+}
 
 

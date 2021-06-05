@@ -10,10 +10,8 @@ private:
 	int height;
 public:
 	Rectangle();
-	Rectangle(char* name, int x, int y, char* color, int width, int height);
+	Rectangle(char* name, int x, int y, int width, int height, char* color);
 	void print() override;
-	void setName() override;
-	void setX(int x) override;
-	void setY(int y) override;
-	void setColor(char* color) override;
+	void setWidth(int width);
+	void setHeight(int height);
 };
