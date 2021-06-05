@@ -5,9 +5,9 @@ class Shape
 public:
 	Shape();
 	~Shape();
-	Shape(const char* name, int x, int y, const char* color);
+	Shape(char* name, int x, int y, char* color);
 
-	const char* getName() { return this->name; }
+	char* getName() { return this->name; }
 	virtual void print() = 0;
 	virtual void setName()=0;
 	virtual void setX(int x)=0;
@@ -17,7 +17,7 @@ public:
 
 
 protected:
-	const char* name;
+	char* name;
 	int x;
 	int y;
 	char* color;

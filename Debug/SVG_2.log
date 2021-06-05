@@ -1,69 +1,25 @@
 ﻿  SVG_2.cpp
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(13,37): error C2065: 'String': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(13,30): error C2923: 'Vector': 'String' is not a valid template type argument for parameter 'T'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(17,2): error C2065: 'String': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(17,9): error C2146: syntax error: missing ';' before identifier 'insideInfo'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(17,9): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(18,39): error C2662: 'size_t Vector<T>::getSize(void) const': cannot convert 'this' pointer from 'Vector' to 'const Vector<T> &'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(18,39): message : Reason: cannot convert from 'Vector' to 'const Vector<T>'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(18,25): message : Conversion requires a second user-defined-conversion operator or constructor
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(21,9): message : see declaration of 'Vector<T>::getSize'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(20,33): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(20,33): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(22,7): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(22,7): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(22,37): error C2088: '[': illegal for class
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(25,19): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(25,19): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(27,6): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(27,19): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(27,39): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(27,39): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(30,14): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(30,35): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(32,7): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(32,7): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(32,37): error C2088: '[': illegal for class
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(35,19): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(35,19): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(37,6): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(37,19): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(37,39): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(37,39): message : while trying to match the argument list '(Vector, size_t)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(40,14): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(40,35): error C2065: 'insideInfo': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(50,29): error C2065: 'String': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(50,22): error C2923: 'Vector': 'String' is not a valid template type argument for parameter 'T'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(53,5): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(53,5): message : while trying to match the argument list '(Vector, int)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(55,43): error C2664: 'Rectangle constructRectangle(Vector)': cannot convert argument 1 from 'Vector' to 'Vector'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(55,43): message : Cannot copy construct class 'Vector' due to ambiguous copy constructors or no available copy constructor
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(13,11): message : see declaration of 'constructRectangle'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(58,10): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(58,10): message : while trying to match the argument list '(Vector, int)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(59,10): error C2678: binary '[': no operator found which takes a left-hand operand of type 'Vector' (or there is no acceptable conversion)
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(38,5): message : could be 'T &Vector<T>::operator [](int) const'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(59,10): message : while trying to match the argument list '(Vector, int)'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(75,4): error C2065: 'String': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(75,11): error C2146: syntax error: missing ';' before identifier 'string'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(75,18): error C2513: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>': no variable declared before '='
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(76,12): error C2065: 'String': undeclared identifier
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(76,4): error C2923: 'Vector': 'String' is not a valid template type argument for parameter 'T'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(76,28): error C2275: 'std::string': illegal use of this type as an expression
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\xstring(4648): message : see declaration of 'std::string'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(76,26): error C2512: 'Vector': no appropriate default constructor available
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(6,1): message : see declaration of 'Vector'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(77,24): error C2664: 'void recogniseShape(Vector)': cannot convert argument 1 from 'Vector' to 'Vector'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(77,24): message : Cannot copy construct class 'Vector' due to ambiguous copy constructors or no available copy constructor
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(50,6): message : see declaration of 'recogniseShape'
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(112,31): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(344,31): warning C4267: 'argument': conversion from 'size_t' to 'char', possible loss of data
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(113,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(352,31): warning C4267: 'argument': conversion from 'size_t' to 'char', possible loss of data
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(19,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(142,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(138): message : while compiling class template member function 'Vector<String> &Vector<String>::push_back(const T &)'
+          with
+          [
+              T=String
+          ]
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(136): message : see reference to function template instantiation 'Vector<String> &Vector<String>::push_back(const T &)' being compiled
+          with
+          [
+              T=String
+          ]
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(123): message : see reference to class template instantiation 'Vector<String>' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(55,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(52): message : while compiling class template member function 'void Vector<String>::resize(void)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(139): message : see reference to function template instantiation 'void Vector<String>::resize(void)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(91): message : while compiling class template member function 'Vector<String>::Vector(const Vector<String> &)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(141): message : see reference to function template instantiation 'Vector<String>::Vector(const Vector<String> &)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(69,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(65): message : while compiling class template member function 'void Vector<String>::copy(const Vector<String> &)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(92): message : see reference to function template instantiation 'void Vector<String>::copy(const Vector<String> &)' being compiled
+  SVG_2.vcxproj -> C:\Users\Rosi Deyanova\source\repos\SVG_2\Debug\SVG_2.exe

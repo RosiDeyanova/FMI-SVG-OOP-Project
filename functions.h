@@ -2,13 +2,30 @@
 #include <iostream>
 #include <cstring>
 #include <fstream>
-#include "Shape.h"
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Line.h"
 #include "Vector.h"
 #include "String.h"
 using namespace std;
+
+String getType(String word) 
+{
+	String type;
+	for (size_t i = 0; i < word.length(); i++)
+	{
+		while (word[i]!='=')
+		{
+			type = type + word[i];
+		}
+	}
+
+	return type;
+}
+String getInfo(String word) {
+	String info;
+	return info;
+}
 
 Rectangle constructRectangle(Vector<String> words)
 {
@@ -21,25 +38,27 @@ Rectangle constructRectangle(Vector<String> words)
 		{
 			if (words[i][0] == 'x' && words[i][1] == '=') //checks if the char* starts with x=
 			{
-				j += 2; //skipping the ="
-				while (words[i][j] == '"')
+				j += 3; //skipping the ="
+				while (words[i][j] != '"') //gets the info between the " .... "
 				{
 					insideInfo = insideInfo + words[i][j];
 					j++;
 				}
-				rec.setX(insideInfo.Int_Parse(insideInfo.getString()));
-			}
-			if (words[i][j] == 'y' && words[i][j + 1] == '=')
+				rec.setX(insideInfo.Int_Parse(insideInfo.getString())); //parses the info from String to int
+				insideInfo.empty(); //empties the String
+			}   //fills up the x
+			if (words[i][0] == 'y' && words[i][1] == '=')
 			{
-				j += 2; //skipping the ="
-				while (words[i][j] == '"')
+				j += 3; //skipping the ="
+				while (words[i][j] != '"')
 				{
 					insideInfo = insideInfo + words[i][j];
 					j++;
 				}
 				rec.setY(insideInfo.Int_Parse(insideInfo.getString()));
-			}
-
+				insideInfo.empty();
+			} //fills up the y
+			if ()
 		}
 
 	}

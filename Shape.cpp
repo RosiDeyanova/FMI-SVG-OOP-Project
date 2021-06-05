@@ -3,9 +3,9 @@
 
 Shape::Shape()
 {
-	this->name = "none";
 	this->x = 0;
 	this->y = 0;
+	this->color = new char[6];
 	strcpy_s(color, 5, "none");
 }
 
@@ -15,8 +15,11 @@ Shape::~Shape()
 	delete[] this->color;
 }
 
-Shape::Shape(const char* name, int x, int y, const char* color)
+Shape::Shape(char* name, int x, int y, char* color)
 {
+	delete[] this->name;
+	this->name = new char[strlen(name) + 1];
+	strcpy_s(this->name, strlen(name) + 1, name);
 	this->name = name;
 	this->x = x;
 	this->y = y;

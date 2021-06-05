@@ -2,7 +2,7 @@
 #pragma once
 #include <iostream>
 #include "Vector.h"
-#include "functions.h"
+
 class String
 {
 private:
@@ -20,6 +20,7 @@ public:
 	void print()const;
 	int length()const;
 	int find(char c, int lastToken);
+	void empty();
 	String substr(size_t startPos, size_t length);
 	String toUpper(String s);
 	String toLower(String s);
@@ -111,7 +112,7 @@ int String::find(char c,int lastToken)
 {
 	for (size_t i = lastToken; i < this->length(); i++)
 	{
-		if (this->str[i] == c && this->str[i]!=' ') {
+		if (this->str[i] == c) {
 			return i;
 		}
 	}
@@ -125,7 +126,8 @@ Vector<String> String::tokenize(char c)
 	// да го запазим някъде
 	// да влезем в цикъл и да спамим .find докато не върне -1
 
-	int lastToken = this->find('<', lastToken);
+	int lastToken = 0;
+	lastToken= this->find('<', lastToken);
 	int endToken = 0;
 	while (endToken != this->length()) {
 		endToken = this->find(c, lastToken);
@@ -142,6 +144,12 @@ Vector<String> String::tokenize(char c)
 void String::erase()
 {
 	delete[] this->str;
+}
+
+inline void String::empty()
+{
+	this->str = new char[1];
+	str[0] = 0;
 }
 
 void String::copy(const String& other)
