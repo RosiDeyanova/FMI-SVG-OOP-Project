@@ -23,6 +23,7 @@ public:
 	void print();
 	Vector<T>& push_front(const T& New);
 	Vector<T>& push_back(const T& New);
+	Vector<T>& eraseAt(size_t n);
 	void removeAtIndex(int index);
 	void removeElement(const T& element);
 	void insertAtPos(int index, const T& element);
@@ -44,8 +45,6 @@ public:
 
 template <class T>
 std::ostream& operator << (std::ostream& stream, const Vector<T>& v);
-
-
 
 template <class T>
 void Vector<T>::resize()
@@ -77,6 +76,7 @@ void Vector<T>::erase()
 {
 	delete[] this->data;
 }
+
 
 template <class T>
 Vector<T>::Vector()
@@ -148,6 +148,24 @@ Vector<T>& Vector<T>::push_back(const T& New)
 	this->data = newBuffer;
 	this->size++;
 
+	return *this;
+}
+
+template<class T>
+inline Vector<T>& Vector<T>::eraseAt(size_t n)
+{
+	T* newElement = new T[this->size - 1];
+	for (size_t i = 0; i < n; i++)
+	{
+		newElement[i] = this->data[i];
+	}
+	for (size_t i = 0; i < size; i++)
+	{
+		newElement[i] = this->data[i + 1];
+	}
+	delete[] this->data;
+	this->data = newElement;
+	this->size--;
 	return *this;
 }
 

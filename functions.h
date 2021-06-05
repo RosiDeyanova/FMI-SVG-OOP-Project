@@ -192,3 +192,20 @@ Vector<Shape*> openFile(const char* input_file_name, Vector<Shape*>shapes)
 	}
 };
 //add in open command
+
+String checkTranslation(String word) 
+{
+	String info;
+	for (size_t i = 0; i < word.length(); i++)
+	{
+		if (word[i-1]=='=')
+		{
+			while (i<word.length())
+			{
+				info = info + word[i];
+				i++;
+			}
+		}
+	}
+	return info;
+}

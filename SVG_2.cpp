@@ -20,7 +20,7 @@ int main()
 		cin.getline(command, 64);
 		ofstream outputstream;
 		ifstream inputstream;
-		
+
 		//command line
 		if (strncmp(command, "open", 4) == 0)
 		{
@@ -85,17 +85,16 @@ int main()
 			String input = console_input;
 			Vector<String> input_shape;
 			input_shape = input.tokenize(' ', false);
-			if (input_shape[0]=="rectangle")
+			if (input_shape[0] == "rectangle")
 			{
-				char* name= (input_shape[0].getString());
-				int x= input_shape[1].Int_Parse(input_shape[1].getString());
-				int y= input_shape[2].Int_Parse(input_shape[2].getString());
-				int width= input_shape[3].Int_Parse(input_shape[3].getString());
-				int height= input_shape[4].Int_Parse(input_shape[4].getString());
-				char* color= input_shape[5].getString();
-				Rectangle rec(name, x, y, width, height, color);
-				shapes.push_back(&rec);
-				cout << "Successfully created rectangle ("<<shapes.getSize()<<")";
+				char* name = (input_shape[0].getString());
+				int x = input_shape[1].Int_Parse(input_shape[1].getString());
+				int y = input_shape[2].Int_Parse(input_shape[2].getString());
+				int width = input_shape[3].Int_Parse(input_shape[3].getString());
+				int height = input_shape[4].Int_Parse(input_shape[4].getString());
+				char* color = input_shape[5].getString();
+				shapes.push_back(new Rectangle(name, x, y, width, height, color));
+				cout << "Successfully created rectangle (" << shapes.getSize() << ")"<<endl;
 			}
 			else if (input_shape[0] == "circle")
 			{
@@ -103,10 +102,9 @@ int main()
 				int x = input_shape[1].Int_Parse(input_shape[1].getString());
 				int y = input_shape[2].Int_Parse(input_shape[2].getString());
 				int r = input_shape[3].Int_Parse(input_shape[3].getString());
-				char* color = input_shape[5].getString();
-				Circle cir(name, x, y, color,r);
-				shapes.push_back(&cir);
-				cout << "Successfully created circle (" << shapes.getSize() << ")";
+				char* color = input_shape[4].getString();
+				shapes.push_back(new Circle(name, x, y, color, r));
+				cout << "Successfully created circle (" << shapes.getSize() << ")"<<endl;
 			}
 			else if (input_shape[0] == "line")
 			{
@@ -116,9 +114,8 @@ int main()
 				int x2 = input_shape[3].Int_Parse(input_shape[3].getString());
 				int y2 = input_shape[4].Int_Parse(input_shape[4].getString());
 				char* color = input_shape[5].getString();
-				Line line(name, x, y, color, x2,y2);
-				shapes.push_back(&line);
-				cout << "Successfully created line (" << shapes.getSize() << ")";
+				shapes.push_back(new Line(name, x, y, color, x2, y2));
+				cout << "Successfully created line (" << shapes.getSize() << ")"<<endl;
 			}
 			//take console_input, put it in a vector, check the first element and call a constructor then add it to the shapes vector
 
@@ -128,7 +125,44 @@ int main()
 		else if (strncmp(command, "erase", 5) == 0)
 		{
 			strcpy_s(console_input, strlen(command) - 5, &(command[6]));
-			int position = (int)console_input;
+			String input = console_input;
+			int position = input.Int_Parse(input.getString());
+			shapes.eraseAt(max(position - 1, 0));
+
+		}
+		else if (strncmp(command, "translate", 9) == 0)
+		{
+			//check if second word is a number, if not go trough all shapes and translate them, if it is, translate only this shape
+			strcpy_s(console_input, strlen(command) - 9, &(command[10]));
+			String input = console_input;
+			Vector<String> input_shape;
+			input_shape = input.tokenize(' ', false);
+			if (input_shape[0][0] >= '1' && input_shape[0][0] <= '9')//checking if the second word is a number
+			{
+				int x = shapes[input_shape[0].Int_Parse(input_shape[0].getString()) - 1]->getX();
+				int y = shapes[input_shape[0].Int_Parse(input_shape[0].getString()) - 1]->getY();
+				String addedX = checkTranslation(input_shape[2]).getString();
+				String addedY = checkTranslation(input_shape[1]).getString();
+
+				int num = input_shape[0].Int_Parse(input_shape[0].getString());
+				shapes[num-1]->setX(x + addedX.Int_Parse(addedX.getString()));
+				shapes[num-1]->setY(y + addedY.Int_Parse(addedY.getString()));
+
+
+			}
+			else
+			{
+				String addedX = checkTranslation(input_shape[1]).getString();
+				String addedY = checkTranslation(input_shape[0]).getString();
+				for (size_t i = 0; i < shapes.getSize(); i++)
+				{
+					int x = shapes[i]->getX();
+					int y = shapes[i]->getY();
+					shapes[i]->setX(x + addedX.Int_Parse(addedX.getString()));
+					shapes[i]->setY(y + addedY.Int_Parse(addedY.getString()));
+				}
+			
+			}
 
 		}
 	}

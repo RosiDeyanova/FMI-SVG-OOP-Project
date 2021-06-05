@@ -12,7 +12,8 @@ public:
 	void setX(int x);
 	void setY(int y);
 	void setColor(char* color);
-
+	int getX();
+	int getY();
 
 
 protected:

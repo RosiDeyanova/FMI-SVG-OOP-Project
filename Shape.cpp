@@ -44,4 +44,14 @@ void Shape::setColor(char* color)
 	strcpy_s(this->color, strlen(color) + 1, color);
 }
 
+int Shape::getX()
+{
+	return this->x;
+}
+
+int Shape::getY()
+{
+	return this->y;
+}
+
 
