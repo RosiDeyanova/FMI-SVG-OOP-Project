@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
 	char console_input[120];
-	char* openFileName = new char[10];
+	String openFileName;
 	Vector<Shape*> shapes;
 	bool isFileOpen = false;
 	char command[64];// = "open test.txt";
@@ -69,7 +69,7 @@ int main()
 		}
 		else if (strncmp(command, "save", 4) == 0)
 		{
-			save(shapes, openFileName);
+			save(shapes, openFileName.getString());
 			cout << "Successfully saved" << endl;
 		}
 		else if (strncmp(command, "saveas", 6) == 0)
