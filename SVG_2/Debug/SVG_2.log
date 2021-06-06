@@ -1,0 +1,31 @@
+﻿  SVG_2.cpp
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(113,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(355,31): warning C4267: 'argument': conversion from 'size_t' to 'char', possible loss of data
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(15,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(29,39): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(199,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(203,12): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(142,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(144,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(140): message : while compiling class template member function 'Vector<String> &Vector<String>::push_back(const T &)'
+          with
+          [
+              T=String
+          ]
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(139): message : see reference to function template instantiation 'Vector<String> &Vector<String>::push_back(const T &)' being compiled
+          with
+          [
+              T=String
+          ]
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(123): message : see reference to class template instantiation 'Vector<String>' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(55,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(52): message : while compiling class template member function 'void Vector<String>::resize(void)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(141): message : see reference to function template instantiation 'void Vector<String>::resize(void)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(92): message : while compiling class template member function 'Vector<String>::Vector(const Vector<String> &)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\String.h(144): message : see reference to function template instantiation 'Vector<String>::Vector(const Vector<String> &)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(69,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(65): message : while compiling class template member function 'void Vector<String>::copy(const Vector<String> &)'
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(93): message : see reference to function template instantiation 'void Vector<String>::copy(const Vector<String> &)' being compiled
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(193): warning C4715: 'openFile': not all control paths return a value
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(162): warning C4715: 'recogniseShape': not all control paths return a value
+  SVG_2.vcxproj -> C:\Users\Rosi Deyanova\source\repos\SVG_2\Debug\SVG_2.exe
