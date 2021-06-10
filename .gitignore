@@ -1,2 +1,5 @@
 .vs/
 ./.vs/
+*.suo
+
+.vs/SVG_2/v16/.suo

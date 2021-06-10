@@ -21,12 +21,10 @@ public:
 	size_t getSize()const;
 
 	void print();
-	Vector<T>& push_front(const T& New);
 	Vector<T>& push_back(const T& New);
 	Vector<T>& eraseAt(size_t n);
 	Vector<T>& empty();
-	void removeAtIndex(int index);
-	void removeElement(const T& element);
+	
 	void insertAtPos(int index, const T& element);
 	bool contains(const T& element)const;
 
@@ -117,23 +115,7 @@ void Vector<T>::print()
 }
 
 
-template <class T>
-Vector<T>& Vector<T>::push_front(const T& New)
-{
-	if (this->size == this->capacity - 1) resize();
 
-	T* newBuffer = new T[this->size + 1];
-	for (int i = 0; i < this->size; i++)
-	{
-		newBuffer[i + 1] = this->data[i];
-	}
-	newBuffer[0] = New;
-	delete[] this->data;
-	this->data = newBuffer;
-	this->size++;
-
-	return *this;
-}
 
 template <class T>
 Vector<T>& Vector<T>::push_back(const T& New)
@@ -183,27 +165,6 @@ size_t Vector<T>::getSize() const
 	return this->size;
 }
 
-template <class T>
-void Vector<T>::removeAtIndex(int index)
-{
-
-	for (int i = index; i < this->size - 1; i++)
-	{
-		this->data[i] = this->data[i + 1];
-	}
-	this->size--;
-}
-
-template <class T>
-void Vector<T>::removeElement(const T& element)
-{
-	int index;
-	for (int i = 0; i < this->size; i++)
-	{
-		if (this->data[i] == element) index = i;
-	}
-	removeAtIndex(index);
-}
 
 template <class T>
 void Vector<T>::insertAtPos(int index, const T& element)

@@ -22,18 +22,12 @@ public:
 	int find(char c, int lastToken);
 	void empty();
 	String substr(size_t startPos, size_t length);
-	String toUpper(String s);
-	String toLower(String s);
-	String toString(size_t x);
 	Vector<String> tokenize(char c, bool isReadingFromFile);
 	int toInt(const char* txt);
 	char* getString() 
 	{
 		return this->str;
-	}
-	// Vector<String*> tokens <- вектор от показатели
-	// Vector<String> tokens <- вектор от Стринг обекти ( копия )
-	
+	}	
 
 
 	String& operator=(const String& other);
@@ -53,8 +47,6 @@ public:
 	bool operator>(const String& other);
 	bool operator<=(const String& other);
 	bool operator>=(const String& other);
-
-
 
 
 	friend std::ostream& operator<<(std::ostream& out, const String& s);
@@ -329,32 +321,5 @@ String operator+(char c, String s)
 
 }
 
-String String::toUpper(String s)
-{
-	for (int i = 0; i < s.length(); i++)
-	{
-		if (s[i] >= 'a' && s[i] <= 'z') s[i] = s[i] - 32;
-	}
-	return s;
-}
 
-String String::toLower(String s)
-{
-	for (int i = 0; i < s.length(); i++)
-	{
-		if (s[i] >= 'A' && s[i] <= 'Z') s[i] = s[i] + 32;
-	}
-	return s;
-}
 
-String String::toString(size_t x)
-{
-	String result;
-	while (x)
-	{
-		if (x < 10) result = '0' + x;
-		result = result + ('0' + (x % 10));
-		x = x / 10;
-	}
-	return result;
-}
