@@ -4,7 +4,7 @@ C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(15,23): warning C401
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(29,39): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(199,23): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\functions.h(203,12): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(142,17): warning C4018: '>': signed/unsigned mismatch
+C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\SVG_2.cpp(143,17): warning C4018: '>': signed/unsigned mismatch
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(126,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Rosi Deyanova\source\repos\SVG_2\SVG_2\Vector.h(122): message : while compiling class template member function 'Vector<String> &Vector<String>::push_back(const T &)'
           with

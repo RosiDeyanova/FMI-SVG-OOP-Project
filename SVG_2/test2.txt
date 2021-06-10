@@ -5,4 +5,6 @@
   <circle x="13" y="17" r="10" fill="blue" />
   <circle x="9" y="8" r="8" fill="red" />
   <line x="7" y="5" x2="5" y2="7" fill="black" />
+  <rectangle x="3" y="4" width="5" height="6" fill="red" />
+  <rectangle x="3" y="4" width="5" height="6" fill="red" />
 </svg>

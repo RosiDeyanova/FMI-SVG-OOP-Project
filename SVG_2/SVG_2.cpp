@@ -67,11 +67,6 @@ int main()
 			isFileOpen = false;
 			cout << "Your file is closed.";
 		}
-		else if (strncmp(command, "save", 4) == 0)
-		{
-			save(shapes, openFileName.getString());
-			cout << "Successfully saved" << endl;
-		}
 		else if (strncmp(command, "saveas", 6) == 0)
 		{
 			strcpy_s(console_input, strlen(command) - 6, &(command[7]));
@@ -79,6 +74,12 @@ int main()
 			cout << "Successfully saved as" << console_input << endl;
 
 		}
+		else if (strncmp(command, "save", 4) == 0)
+		{
+			save(shapes, openFileName.getString());
+			cout << "Successfully saved" << endl;
+		}
+		
 
 
 		//functional commands
